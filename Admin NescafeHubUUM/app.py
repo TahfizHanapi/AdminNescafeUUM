@@ -30,12 +30,17 @@ def eventorder():
     cursor = connection.cursor()
 
     # Fetch the data from the database
-    cursor.execute("SELECT order_id, product_name, message FROM orders")
+    cursor.execute(
+        "SELECT id, first_name, last_name, event_name, location, coffee, quantity, appointment_date, appointment_time, phone, message FROM nescafe")
     orders = cursor.fetchall()
+
+    # Print the value of orders for debugging
+    print(orders)
 
     # Close the database connection
     cursor.close()
     connection.close()
+    return render_template('eventOrder.html', orders=orders)
 
 
 @app.route('/forgotpassword')
