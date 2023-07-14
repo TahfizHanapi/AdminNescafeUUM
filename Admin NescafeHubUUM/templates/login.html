@@ -1,0 +1,39 @@
+<!-- Section: Design Block -->
+<section class="text-center text-lg-start">
+  <style>
+    .login-box {
+      width: 400px;
+      margin: 0 auto;
+      background-color: #f8f9fa;
+      border: 1px solid #dee2e6;
+      padding: 20px;
+      border-radius: 5px;
+    }
+  </style>
+  <div class="login-box">
+    <form>
+      <div class="mb-4">
+        <label for="form2Example1" class="form-label">Email address:</label>
+        <input type="email" id="form2Example1" class="form-control" />
+      </div>
+
+      <div class="mb-4">
+        <label for="form2Example2" class="form-label">Password:</label>
+        <input type="password" id="form2Example2" class="form-control" />
+      </div>
+
+      <div class="mb-4 d-flex justify-content-between align-items-center">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="form2Example31" checked />
+          <label class="form-check-label" for="form2Example31">Remember me</label>
+        </div>
+        <div>
+          <a href="{{ url_for('forgotpassword') }}">Forgot Password?</a>
+        </div>
+      </div>
+
+      <a type="submit" class="btn btn-primary btn-block mb-4" href="{{ url_for('dashboard') }}">Sign in</a>
+    </form>
+  </div>
+</section>
+<!-- Section: Design Block -->
