@@ -20,7 +20,15 @@ def login():
 
 @app.route('/dashboard')
 def dashboard():
-    return render_template('dashboard.html')
+    # Query the database to get the total number of rows
+    connection = mysql.connector.connect(**db_config)
+    cur = connection.cursor()
+    cur.execute("SELECT COUNT(*) FROM nescafe")
+    total_rows = cur.fetchone()[0]
+    cur.close()
+
+    return render_template('dashboard.html', total_rows=total_rows)
+
 
 
 @app.route('/eventorder')
