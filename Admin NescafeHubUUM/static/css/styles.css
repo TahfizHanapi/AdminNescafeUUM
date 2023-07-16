@@ -85,3 +85,6 @@ color: white;
 .links a{
 margin-left: 4px;
 }
+.chart-container {
+    background-color: white;
+}

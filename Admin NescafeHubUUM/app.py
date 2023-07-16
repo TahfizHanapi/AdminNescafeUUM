@@ -34,8 +34,8 @@ def dashboard():
     cur.execute("SELECT coffee, quantity FROM bookings")
     results = cur.fetchall()
 
-    coffees = ["classic", "cappuccino", "latte"]
-    quantities = [0, 0, 0]  # Initialize quantities for Classic, Cappuccino, and Latte
+    coffees = ["original", "milk tea", "hazelnuts", "caramel", "mocha", "rich"]
+    quantities = [0, 0, 0, 0, 0, 0]  # Initialize quantities for Classic, Cappuccino, and Latte
 
     for result in results:
         coffee = result[0].lower()  # Convert to lowercase for case-insensitive comparison
@@ -135,8 +135,8 @@ def sales():
     cur.execute("SELECT coffee, quantity FROM bookings")
     results = cur.fetchall()
 
-    coffees = ["classic", "cappuccino", "latte"]
-    quantities = [0, 0, 0]  # Initialize quantities for Classic, Cappuccino, and Latte
+    coffees = ["original", "milk tea", "hazelnuts", "caramel", "mocha", "rich"]
+    quantities = [0, 0, 0, 0, 0, 0]  # Initialize quantities for Classic, Cappuccino, and Latte
 
     for result in results:
         coffee = result[0].lower()  # Convert to lowercase for case-insensitive comparison

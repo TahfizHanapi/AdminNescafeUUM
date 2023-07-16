@@ -81,16 +81,21 @@
                         <li class="breadcrumb-item active">Sales</li>
                     </ol>
 
-                    <div class="card mb-4">
-                        <div class="card-header">
-                            <i class="fas fa-chart-bar me-1"></i>
-                            Sales
-                        </div>
-                        <div class="card-body">
-                            <canvas id="myBarChart2" width="100%" height="50"></canvas>
-                        </div>
-                    </div>
-                </div>
+<div class="card mb-4" style="width: 700px;" >
+    <div class="card-header">
+        <i class="fas fa-table me-1"></i>
+        Sales
+    </div>
+
+
+    <div class="card-body">
+       <div style="display: flex; justify-content: flex-start;">
+            <div class="chart-container" style="width: 500px;">
+                <canvas id="myBarChart" width="500" height="400"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
             </main>
         </div>
     </div>
@@ -101,30 +106,31 @@
 
     <!-- Add a script to render the bar chart -->
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var ctx = document.getElementById('myBarChart2').getContext('2d');
-            var chartData = "{{ chart_data|safe }}"; // Use the "safe" filter to avoid escaping
+    document.addEventListener('DOMContentLoaded', function () {
+        var ctx = document.getElementById('myBarChart').getContext('2d');
+        var chartData = "{{ chart_data|safe }}"; // Use the "safe" filter to avoid escaping
 
-            var myBarChart2 = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: ["Classic", "Cappuccino", "Latte"], // Replace with your desired labels for the second chart
-                    datasets: [{
-                        label: 'Quantities Sold',
-                        data: {{ quantities|tojson|safe }}, // Use the "safe" filter for quantities as well
-                        backgroundColor: ['rgba(75, 192, 192, 0.2)', 'rgba(153, 102, 255, 0.2)', 'rgba(255, 159, 64, 0.2)'], // Customize the colors if needed
-                        borderColor: ['rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1)'], // Customize the border colors if needed
-                    }]
-                },
-                options: {
-                    scales: {
-                        y: {
-                            beginAtZero: true
-                        }
+        var myBarChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ["Original", "Milk Team", "Hazelnut", "Caramel", "Mocha", "Rich"],
+                datasets: [{
+                    label: 'Quantities Sold',
+                    data: {{ quantities|tojson|safe }}, // Use the "safe" filter for quantities as well
+                    backgroundColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)', 'rgba(255, 159, 64, 1)'],
+                    borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)'],
+
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
                     }
                 }
-            });
+            }
         });
-    </script>
+    });
+</script>
 </body>
 </html>
