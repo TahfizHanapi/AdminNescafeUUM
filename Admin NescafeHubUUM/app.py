@@ -76,7 +76,7 @@ def eventorder():
     cursor = connection.cursor()
 
     # Fetch the data from the database
-    cursor.execute("SELECT id, first_name, last_name, event_name, location, coffee, quantity, appointment_date, appointment_time, phone, message FROM nescafe")
+    cursor.execute("SELECT id, first_name, last_name, event_name, location, coffee, quantity, appointment_date, appointment_time, phone, message FROM bookings")
     orders = cursor.fetchall()
 
     # Print the value of orders for debugging
@@ -100,7 +100,7 @@ def incomingorder():
     cursor = connection.cursor()
 
     # Fetch the data from the database
-    cursor.execute("SELECT id, first_name, last_name, event_name, location, coffee, quantity, appointment_date, appointment_time, phone, message FROM nescafe")
+    cursor.execute("SELECT id, first_name, last_name, event_name, location, coffee, quantity, appointment_date, appointment_time, phone, message FROM bookings")
     orders = cursor.fetchall()
 
     # Print the value of orders for debugging
