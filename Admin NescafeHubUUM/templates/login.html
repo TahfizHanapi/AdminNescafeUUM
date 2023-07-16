@@ -1,39 +1,95 @@
-<!-- Section: Design Block -->
-<section class="text-center text-lg-start">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
   <style>
-    .login-box {
-      width: 400px;
-      margin: 0 auto;
-      background-color: #f8f9fa;
-      border: 1px solid #dee2e6;
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-image: url('https://wallpapercave.com/wp/wp8578257.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .login-container {
+      width: 300px;
       padding: 20px;
+      background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background color */
       border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 90%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+
+    .btn-primary {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      background-color: #0056b3;
     }
   </style>
-  <div class="login-box">
-    <form>
-      <div class="mb-4">
-        <label for="form2Example1" class="form-label">Email address:</label>
-        <input type="email" id="form2Example1" class="form-control" />
-      </div>
+</head>
+<body>
+  <div class="login-container">
+    <h2>Login</h2>
+    <div class="form-group">
+      <label for="username">Username:</label>
+      <input type="text" id="username" placeholder="Enter your username">
+    </div>
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="password" id="password" placeholder="Enter your password">
+    </div>
 
-      <div class="mb-4">
-        <label for="form2Example2" class="form-label">Password:</label>
-        <input type="password" id="form2Example2" class="form-control" />
-      </div>
+    <a href="{{ url_for('dashboard') }}">
+    <button type="button" class="btn btn-primary btn-block mb-4">Sign in</button>
+    </a>
 
-      <div class="mb-4 d-flex justify-content-between align-items-center">
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="form2Example31" checked />
-          <label class="form-check-label" for="form2Example31">Remember me</label>
-        </div>
-        <div>
-          <a href="{{ url_for('forgotpassword') }}">Forgot Password?</a>
-        </div>
-      </div>
-
-      <a type="submit" class="btn btn-primary btn-block mb-4" href="{{ url_for('dashboard') }}">Sign in</a>
-    </form>
   </div>
-</section>
-<!-- Section: Design Block -->
+
+  <script>
+    function login() {
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      // Add your login logic here (e.g., check credentials, perform authentication, etc.)
+      // For simplicity, let's assume the login is successful if the username and password are not empty
+      if (username.trim() === '' || password.trim() === '') {
+        alert('Please enter both username and password.');
+      } else {
+        alert('Login successful!');
+        // You can redirect the user to another page after successful login
+        // window.location.href = 'dashboard.html';
+      }
+    }
+  </script>
+</body>
+</html>

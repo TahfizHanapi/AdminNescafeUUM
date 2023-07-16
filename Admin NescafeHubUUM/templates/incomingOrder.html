@@ -13,7 +13,7 @@
     <body>
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="{{ url_for('dashboard') }}">NESCAFE</a>
+            <a class="navbar-brand ps-3" href="{{ url_for('dashboard') }}">Nescafé</a>
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
@@ -121,28 +121,43 @@
                             <div class="card-body">
                                 <div id="order-list">
                                     <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th>Order ID</th>
-                                                <th>Product Name</th>
-                                                <th>Message</th>
-                                                <th>Action</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <!-- Loop through orders and populate the table rows -->
-                                            <tr>
-                                                <td>{{ orderId }}</td>
-                                                <td>{{ orderproduct_name }}</td>
-                                                <td>{{ message }}</td>
-                                                <td>
-                                                    <!-- Functional buttons for accepting or rejecting the order -->
-                                                    <button onclick="acceptOrder({ orderid })">Accept</button>
-                                                    <button onclick="rejectOrder({ orderid })">Reject</button>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+    <thead>
+        <tr>
+            <th>Order ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Event Name</th>
+            <th>Location</th>
+            <th>Coffee</th>
+            <th>Quantity</th>
+            <th>Appointment Date</th>
+            <th>Appointment Time</th>
+            <th>Phone</th>
+            <th>Message</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for order in orders %}
+        <tr>
+            <td>{{ order[0] }}</td>
+            <td>{{ order[1] }}</td>
+            <td>{{ order[2] }}</td>
+            <td>{{ order[3] }}</td>
+            <td>{{ order[4] }}</td>
+            <td>{{ order[5] }}</td>
+            <td>{{ order[6] }}</td>
+            <td>{{ order[7] }}</td>
+            <td>{{ order[8] }}</td>
+            <td>{{ order[9] }}</td>
+            <td>{{ order[10] }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+In this example, the 'orders' variable is passed to the template, and within the for loop, you can access the values for each order using the index (e.g., order[0], order[1], etc.).
+
                                 </div>
                             </div>
                         </div>
@@ -167,18 +182,5 @@
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="../static/js/scripts.js"></script>
-        <script>
-            function acceptOrder(orderid) {
-                // Handle order acceptance logic here
-                // You can make an API request to update the order status, for example
-                console.log("Accepting order with ID:", orderid);
-            }
-
-            function rejectOrder(orderid) {
-                // Handle order rejection logic here
-                // You can make an API request to update the order status, for example
-                console.log("Rejecting order with ID:", orderid);
-            }
-        </script>
     </body>
 </html>
