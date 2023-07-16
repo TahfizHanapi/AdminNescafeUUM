@@ -100,7 +100,7 @@ def incomingorder():
     cursor = connection.cursor()
 
     # Fetch the data from the database
-    cursor.execute("SELECT id, first_name, last_name, event_name, location, coffee, quantity, appointment_date, appointment_time, phone, message FROM bookings")
+    cursor.execute("SELECT id, first_name, location, phone, email_address, pickup_delivery, subtotal, total, payment_method, terms_conditions, delivery FROM orders")
     orders = cursor.fetchall()
 
     # Print the value of orders for debugging
