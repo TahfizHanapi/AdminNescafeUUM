@@ -198,7 +198,7 @@
         var myBarChart = new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: ["Original", "Milk Team", "Hazelnut", "Caramel", "Mocha", "Rich"],
+                labels: ["Original", "Milk Tea", "Hazelnut", "Caramel", "Mocha", "Rich"],
                 datasets: [{
                     label: 'Quantities Sold',
                     data: {{ quantities|tojson|safe }}, // Use the "safe" filter for quantities as well
